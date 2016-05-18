@@ -59,6 +59,8 @@ public class JPanelSetting extends JPanel{
 			// TODO Auto-generated method stub
 			gameFrame.getContentPane().removeAll();
 			gameFrame.setContentPane(gameFrame.getJPanelHome());
+			gameFrame.getController().getInitialGame(getJPanelSetting());
+			gameFrame.getController().init();
 			
 		}
 	};
@@ -121,6 +123,10 @@ public class JPanelSetting extends JPanel{
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g.drawImage(background,0,0,1366,768, null);
+	}
+	
+	public JPanelSetting getJPanelSetting(){
+		return this;
 	}
 	
 

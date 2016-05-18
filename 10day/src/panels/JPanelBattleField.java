@@ -70,8 +70,8 @@ public class JPanelBattleField extends JPanel{
 		
 		jPanelField = new JPanelField(gameFrame.getController().getMyGroup(),gameFrame.getController().getAiGroup(),gameFrame.getController());
 		
-		for(int i=0; i<10; i++){
-			for(int j=0; j<10; j++){
+		for(int i=0; i<gameFrame.getController().getLength(); i++){
+			for(int j=0; j<gameFrame.getController().getLength(); j++){
 				jPanelField.add(new JPanelTile(gameFrame.getController().getTiles()[i][j],jPanelField));
 			}
 		}

@@ -7,6 +7,7 @@ import gemelogic.Field;
 import gemelogic.Player;
 import gemelogic.Tile;
 import panels.JPanelHome;
+import panels.JPanelSetting;
 
 public class Controller {
 	
@@ -23,6 +24,7 @@ public class Controller {
 	public ArrayList<Integer> arrayList = new ArrayList<Integer>();
 	
 	private int[] sequence = {0,3,4,1,2,5,3,0,1,4,5,2};
+	private int length; //格子数量
 	private int rebirthPeriods;
 	private int maxTurns;
 	private int turns;
@@ -33,6 +35,19 @@ public class Controller {
 	
 	public Controller(GameFrame game){
 		gameFrame = game;
+		
+		this.getInitialGame(gameFrame.getJPanelHome().getJPanelSetting());
+		
+		
+		
+		this.init();
+		
+	}
+	
+	public void init(){
+		
+		turns = -1;
+		
 		field = new Field(this);
 		tilesArray = field.getTilesArray();
 		myGroup = field.getMyPlayer();
@@ -48,29 +63,20 @@ public class Controller {
 		presentPlayer = myGroup[0];
 		nextPlayer = aiGroup[0];
 		
-		this.init();
 		
-	}
-	
-	public void init(){
-		//初始化游戏信息
-		rebirthPeriods = 12;
-		maxTurns = 60;
-		turns = -1;
-		maxPower = 7;
 		
-		tilesArray[2][9].setHome(0);
-		tilesArray[2][9].setPlayer(myGroup[0]);
-		tilesArray[5][9].setHome(1);
-		tilesArray[5][9].setPlayer(myGroup[1]);
-		tilesArray[8][9].setHome(2);
-		tilesArray[8][9].setPlayer(myGroup[2]);
-		tilesArray[2][0].setHome(3);
-		tilesArray[2][0].setPlayer(aiGroup[0]);
-		tilesArray[5][0].setHome(4);
-		tilesArray[5][0].setPlayer(aiGroup[1]);
-		tilesArray[8][0].setHome(5);
-		tilesArray[8][0].setPlayer(aiGroup[2]);
+		tilesArray[length/4][length-1].setHome(0);
+		tilesArray[length/4][length-1].setPlayer(myGroup[0]);
+		tilesArray[length/2][length-1].setHome(1);
+		tilesArray[length/2][length-1].setPlayer(myGroup[1]);
+		tilesArray[length/4+length/2][length-1].setHome(2);
+		tilesArray[length/4+length/2][length-1].setPlayer(myGroup[2]);
+		tilesArray[length/4][0].setHome(3);
+		tilesArray[length/4][0].setPlayer(aiGroup[0]);
+		tilesArray[length/2][0].setHome(4);
+		tilesArray[length/2][0].setPlayer(aiGroup[1]);
+		tilesArray[length/4+length/2][0].setHome(5);
+		tilesArray[length/4+length/2][0].setPlayer(aiGroup[2]);
 		
 		
 	}
@@ -244,8 +250,8 @@ public class Controller {
 	
 	public int getMyScores(){
 		int score = 0;
-		for(int i=0; i<10 ; i++){
-			for(int j=0; j<10 ; j++){
+		for(int i=0; i<length ; i++){
+			for(int j=0; j<length ; j++){
 				if(field.getTilesArray()[i][j].getOccupyState()==1){
 					score += 1 ;
 				}
@@ -256,8 +262,8 @@ public class Controller {
 	
 	public int getAiScores(){
 		int score = 0;
-		for(int i=0; i<10 ; i++){
-			for(int j=0; j<10 ; j++){
+		for(int i=0; i<length ; i++){
+			for(int j=0; j<length ; j++){
 				if(field.getTilesArray()[i][j].getOccupyState()==2){
 					score += 1 ;
 				}
@@ -290,6 +296,10 @@ public class Controller {
 		return aiGroup;
 	}
 	
+	public int getLength(){
+		return length;
+	}
+	
 	public Field getField(){
 		return field;
 	}
@@ -312,6 +322,13 @@ public class Controller {
 		for (int i = 0; i < myGroup.length; i++) {
 			myGroup[i].presentLocation = myGroup[i].getHomeLocation();
 		}
+	}
+	
+	public void getInitialGame(JPanelSetting jps){
+		this.length = jps.getLength();
+		this.maxTurns = jps.getMaxTurns();
+		this.maxPower = jps.getMaxPower();
+		this.rebirthPeriods = jps.getRebirthPeriod();
 	}
 
 

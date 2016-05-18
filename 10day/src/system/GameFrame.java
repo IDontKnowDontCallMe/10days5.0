@@ -19,8 +19,9 @@ public class GameFrame extends JFrame{
 	//private JPanelField jpanelField;
 	
 	public void Launch(){
-		god = new Controller(this);
+		
 		jpanelHome = new JPanelHome(this);
+		god = new Controller(this);
 		musicThread = new MusicThread();
 		
 		//jpanelField = new JPanelField(god.getMyGroup(),god.getAiGroup(),god);

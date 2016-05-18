@@ -25,7 +25,7 @@ public class JPanelTile extends JPanel implements MouseListener, KeyListener{
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		updatePresentImage();
-		g.drawImage(presentImage, 6, 6,54,54, null);
+		g.drawImage(presentImage, length/20, length/20,length-length/20-length/20,length-length/20-length/20, null);
 	}
 	
 	public JPanelTile(Tile t, JPanelField f){
@@ -40,7 +40,7 @@ public class JPanelTile extends JPanel implements MouseListener, KeyListener{
 	
 	
 	public void init(){
-		length = 66;
+		length = 663/(tile.getField().getController().getLength());
 		x =  tile.getLocation().x;
 		y =  tile.getLocation().y;
 		updatePresentImage();

@@ -25,7 +25,7 @@ public class JPanelPlayer extends JPanel implements MouseListener{
 	public JPanelPlayer(Player p){
 		player = p;
 		number = player.getNumber();
-		length = 66;
+		length = 663/(player.getTile().getField().getController().getLength());
 		init();
 		this.setOpaque(false);
 		this.updateLocation();
@@ -97,7 +97,7 @@ public class JPanelPlayer extends JPanel implements MouseListener{
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		updatePresentImage();
-		g.drawImage(presentImage, 6, 6, 54,54,null);
+		g.drawImage(presentImage, length/20, length/20, length-length/20-length/20,length-length/20-length/20,null);
 	}
 	
 	@Override

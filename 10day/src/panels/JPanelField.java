@@ -35,7 +35,7 @@ public class JPanelField extends JPanel implements KeyListener{
 		allPlayer[4] = new JPanelPlayer(aiGroup[1]);
 		allPlayer[5] = new JPanelPlayer(aiGroup[2]);
 		
-		this.setBounds(0, 0, 800, 800);
+		//this.setBounds(0, 0, 800, 800);
 		//this.setOpaque(false);
 		this.setBackground(Color.BLACK);
 		this.setLayout(null);

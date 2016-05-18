@@ -37,7 +37,7 @@ public class Player {
 		
 		for(int i=x-3;i<x+7;i++){
 			for(int j=y-3;j<y+7;j++){
-				if((0<=i&&i<10)&&(0<=j&&j<10)){
+				if((0<=i&&i<field.getLength())&&(0<=j&&j<field.getLength())){
 					if(Math.abs(i-x)+Math.abs(j-y)<=3){
 						tiles[i][j].setHorizon(true);
 					}
@@ -188,7 +188,7 @@ public class Player {
 			field.tilesArray[x-1][y].setActivated(act);
 			field.tilesArray[x-1][y].setDirection(3);
 		}
-		if(x<9){
+		if(x<field.getLength()-1){
 			field.tilesArray[x+1][y].setActivated(act);
 			field.tilesArray[x+1][y].setDirection(4);
 		}
@@ -196,7 +196,7 @@ public class Player {
 			field.tilesArray[x][y-1].setActivated(act);
 			field.tilesArray[x][y-1].setDirection(1);
 		}
-		if(y<9){
+		if(y<field.getLength()-1){
 			field.tilesArray[x][y+1].setActivated(act);
 			field.tilesArray[x][y+1].setDirection(2);
 		}
@@ -223,8 +223,8 @@ public class Player {
 		Random rnd = new Random();
 		
 		int r = rnd.nextInt(3)+1;
-		if(!((this.getPresentLocation().y==0&&r==1)||(this.getPresentLocation().y==9&&r==2)||
-		(this.getPresentLocation().x==0&&r==3)||(this.getPresentLocation().x==9&&r==4))){
+		if(!((this.getPresentLocation().y==0&&r==1)||(this.getPresentLocation().y==field.getLength()-1&&r==2)||
+		(this.getPresentLocation().x==0&&r==3)||(this.getPresentLocation().x==field.getLength()-1&&r==4))){
 			this.occupy(field, r);
 		}
 		

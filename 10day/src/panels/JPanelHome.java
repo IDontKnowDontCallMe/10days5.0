@@ -131,6 +131,7 @@ public class JPanelHome extends JPanel{
 			// TODO Auto-generated method stub
 			gameFrame.getController().setVsPlayer(true);
 			jPanelBattleField = new JPanelBattleField(gameFrame);
+			gameFrame.musicThread.creatMT("³ß°Ë", 2);
 			gameFrame.setContentPane(jPanelBattleField);
 			gameFrame.remove(gameFrame.getJPanelHome());
 			gameFrame.revalidate();
@@ -173,6 +174,7 @@ public class JPanelHome extends JPanel{
 	};
 	public JPanelHome(GameFrame gf) {
 		gameFrame = gf;
+		jPanelSetting = new JPanelSetting(gameFrame);
 		
 		this.setLayout(null);
 		this.add(VScomputer);
