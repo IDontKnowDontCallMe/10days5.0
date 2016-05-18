@@ -21,6 +21,7 @@ public class JPanelGameInfo extends JPanel{
 	
 	private JLabelTurns turns;
 	private JLabelLeftTurns leftTurns;
+	private JLabelBlueScores blueScores;
 	private JLabelScores scores;
 	private JPanelPlayerInfo playerInfo;
 
@@ -31,17 +32,17 @@ public class JPanelGameInfo extends JPanel{
 		this.setBounds(0, 0 , 322 , 768);
 		this.setLayout(null);
 		
-		turns = new JLabelTurns(gf, numberSize);
-		turns.setBounds(160, 80, 3*numberSize, numberSize);
 		leftTurns = new JLabelLeftTurns(gf, numberSize);
-		leftTurns.setBounds(160, 80+numberSize*2, 3*numberSize, numberSize);
-		scores  =new JLabelScores(gf, numberSize);
-		scores.setBounds(160, 80+numberSize*4, 3*numberSize, numberSize);
+		leftTurns.setBounds(160, 80, 3*numberSize, numberSize);
+		scores = new JLabelScores(gf, numberSize);
+		scores.setBounds(160, 80+numberSize*2, 3*numberSize, numberSize);
+		blueScores  =new JLabelBlueScores(gf, numberSize);
+		blueScores.setBounds(160, 80+numberSize*4, 3*numberSize, numberSize);
 		
 		playerInfo = new JPanelPlayerInfo(gf);
 		playerInfo.setBounds(25,308,250,400);
 		
-		add(turns);
+		add(blueScores);
 		add(leftTurns);
 		add(scores);
 		add(playerInfo);

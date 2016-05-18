@@ -21,6 +21,7 @@ public class JPanelBattleField extends JPanel{
 	
 	private GameFrame gameFrame;
 	private JPanelGameInfo jpanelGameInfo;
+	private JPanelGameOver jPanelGameOver;
 	private JPanelField jPanelField;
 	private JButtonBackToHome jbuttonBackToHome;
 	private JButtonIgnore jbuttonIgnore;
@@ -78,6 +79,8 @@ public class JPanelBattleField extends JPanel{
 		jPanelField.setBounds(431, 52, 663, 663);
 		//gameFrame.getController().nextTurn();
 		
+		jPanelGameOver = new JPanelGameOver(gf);
+		
 		jPanelField.repaint();	
 		
 		
@@ -91,6 +94,14 @@ public class JPanelBattleField extends JPanel{
 	}
 	public JPanelField getJpanelField() {
 		return jPanelField;
+	}
+	
+	public JPanelGameInfo getJPanelGameInfo(){
+		return jpanelGameInfo;
+	}
+	
+	public JPanelGameOver getJPanelGameOver(){
+		return jPanelGameOver;
 	}
 
 

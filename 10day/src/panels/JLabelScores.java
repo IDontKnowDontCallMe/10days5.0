@@ -10,14 +10,14 @@ import system.GameFrame;
 
 public class JLabelScores extends JLabel{
 	
-	private GameFrame gameFrame;
+	protected GameFrame gameFrame;
 	
-	private Image[] numbers;
-	private Image hundred;
-	private Image ten;
-	private Image one;
+	protected Image[] numbers;
+	protected Image hundred;
+	protected Image ten;
+	protected Image one;
 	
-	private int height;
+	protected int height;
 	
 	public JLabelScores(GameFrame gf, int h){
 		

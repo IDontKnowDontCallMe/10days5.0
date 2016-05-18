@@ -131,6 +131,9 @@ public class Controller {
 					allPlayer[i].setSurrounding(false);
 				}
 				field.openAllField();
+				gameFrame.getJPanelHome().getJpanelBattleField().remove(gameFrame.getJPanelHome().getJpanelBattleField().getJPanelGameInfo());
+				gameFrame.getJPanelHome().getJpanelBattleField().add(gameFrame.getJPanelHome().getJpanelBattleField().getJPanelGameOver());
+				gameFrame.repaint();
 			}
 				
 		}
@@ -158,6 +161,9 @@ public class Controller {
 					allPlayer[i].setSurrounding(false);
 				}
 				field.openAllField();
+				gameFrame.getJPanelHome().getJpanelBattleField().remove(gameFrame.getJPanelHome().getJpanelBattleField().getJPanelGameInfo());
+				gameFrame.getJPanelHome().getJpanelBattleField().add(gameFrame.getJPanelHome().getJpanelBattleField().getJPanelGameOver());
+				gameFrame.repaint();
 			}
 		}
 			
@@ -241,6 +247,18 @@ public class Controller {
 		for(int i=0; i<10 ; i++){
 			for(int j=0; j<10 ; j++){
 				if(field.getTilesArray()[i][j].getOccupyState()==1){
+					score += 1 ;
+				}
+			}
+		}
+		return score;
+	}
+	
+	public int getAiScores(){
+		int score = 0;
+		for(int i=0; i<10 ; i++){
+			for(int j=0; j<10 ; j++){
+				if(field.getTilesArray()[i][j].getOccupyState()==2){
 					score += 1 ;
 				}
 			}

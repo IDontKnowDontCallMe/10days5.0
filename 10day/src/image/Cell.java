@@ -37,7 +37,11 @@ public class Cell {
 	public static Image next_bluesword = new ImageIcon("image/Cell/下一个_蓝剑.png").getImage();
 	public static Image next_bluespear = new ImageIcon("image/Cell/下一个_蓝矛.png").getImage();
 	public static Image stateBackGround2 = new ImageIcon("image/Cell/statebackground.png").getImage();
-	public static Image stateBackGround1 = new ImageIcon("image/Cell/GameInfo.png").getImage();
+	public static Image stateBackGround1 = new ImageIcon("image/Cell/GameIfo.png").getImage();
+	public static Image gameover = new ImageIcon("image/Cell/gameover.png").getImage();
+	public static Image redwin = new ImageIcon("image/Cell/红方.png").getImage();
+	public static Image bluewin = new ImageIcon("image/Cell/蓝方.png").getImage();
+	public static Image drawn = new ImageIcon("image/Cell/平局.png").getImage();
 	
 	public static Image number0 = new ImageIcon("image/Cell/0_红.png").getImage();
 	public static Image number1 = new ImageIcon("image/Cell/1_红.png").getImage();
