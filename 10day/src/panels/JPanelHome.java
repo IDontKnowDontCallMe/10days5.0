@@ -5,15 +5,10 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.FileInputStream;
-
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import image.*;
-import music.AudioPlayer;
 import system.GameFrame;
-import sun.audio.*;
-import java.io.*;
 
 
 public class JPanelHome extends JPanel{
@@ -27,6 +22,7 @@ public class JPanelHome extends JPanel{
 	
 	private GameFrame gameFrame;
 	private JPanelBattleField jPanelBattleField;
+	private JPanelSetting jPanelSetting;
 
 	JButton VScomputer = new JButton("VS Computer");
 	JButton VSPlayer = new JButton("VS Player");
@@ -140,7 +136,41 @@ public class JPanelHome extends JPanel{
 			gameFrame.revalidate();
 		}
 	};
-	
+	private MouseListener OptionListener = new MouseListener() {
+		
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			// TODO Auto-generated method stub
+			jPanelSetting = new JPanelSetting(gameFrame);
+			gameFrame.setContentPane(jPanelSetting);
+			
+			
+		}
+	};
 	public JPanelHome(GameFrame gf) {
 		gameFrame = gf;
 		
@@ -158,7 +188,9 @@ public class JPanelHome extends JPanel{
 		VSPlayer.addMouseListener(VPlayerListener);
 		VSPlayer.setBounds(600, 200, 100, 100);
 		VSPlayer.addMouseListener(VPlayerListener);
-		
+		this.add(Option);
+		Option.setBounds(800, 200, 100, 100);
+		Option.addMouseListener(OptionListener);
 	}
 
 	
@@ -177,7 +209,9 @@ public class JPanelHome extends JPanel{
 	public void setJpanelBattleField(JPanelBattleField jBattleField) {
 		jPanelBattleField = jBattleField;
 	}
-	
+	public JPanelSetting getJPanelSetting() {
+		return jPanelSetting;
+	}
 	
 	
 	
