@@ -34,9 +34,9 @@ public class JPanelPlayerInfo extends JPanel{
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		updateImage();
-		g.drawImage(backGround, 0, 0, this.getWidth(), this.getHeight(),null);
-		g.drawImage(present, 32, 106, 188, 200, null);
-		g.drawImage(next,140, 330, 100, 50,  null);
+		//g.drawImage(backGround, 0, 0, this.getWidth(), this.getHeight(),null);
+		g.drawImage(present, 32, 101, 188, 200, null);
+		g.drawImage(next,138, 324, 100, 50,  null);
 	}
 	
 	public void updateImage(){
